@@ -1,8 +1,10 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import prettierConfig from 'eslint-config-prettier';
 
 export default [
   pluginJs.configs.recommended,
+  prettierConfig, // Інтеграція Prettier з ESLint
   {
     files: ['src/**/*.js'],
     languageOptions: { globals: globals.node },
