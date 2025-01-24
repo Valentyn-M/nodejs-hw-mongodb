@@ -54,7 +54,7 @@ export const patchContactController = async (req, res) => {
 
   // Перевірка валідності ObjectId (якщо отримуємо недiсний формат contactId)
   if (!mongoose.Types.ObjectId.isValid(contactId)) {
-    throw createHttpError(404, 'Invalid contact ID');
+    throw createHttpError(400, 'Invalid contact ID');
   }
 
   const result = await updateContact(contactId, req.body);
@@ -75,7 +75,7 @@ export const patchContactController = async (req, res) => {
 export const deleteContactController = async (req, res) => {
   const contactId = req.params.contactId;
   if (!mongoose.Types.ObjectId.isValid(contactId)) {
-    throw createHttpError(404, 'Invalid contact ID');
+    throw createHttpError(400, 'Invalid contact ID');
   }
 
   const contact = await deleteContact(contactId);
