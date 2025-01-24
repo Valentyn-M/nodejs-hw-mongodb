@@ -74,6 +74,10 @@ export const patchContactController = async (req, res) => {
 
 export const deleteContactController = async (req, res) => {
   const contactId = req.params.contactId;
+  if (!mongoose.Types.ObjectId.isValid(contactId)) {
+    throw createHttpError(404, 'Invalid contact ID');
+  }
+
   const contact = await deleteContact(contactId);
 
   if (!contact) {
