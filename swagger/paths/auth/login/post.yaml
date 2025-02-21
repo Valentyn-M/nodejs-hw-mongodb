@@ -1,0 +1,53 @@
+summary: Login user
+description: Logs in a user and returns an access token.
+operationId: loginUser
+tags:
+  - Auth
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            format: email
+            description: User email
+            example: johndoe@example.com
+          password:
+            type: string
+            format: password
+            description: User password
+            example: 'securepassword123'
+responses:
+  '200':
+    description: Successfully logged in a user
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully logged in an user!
+            data:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  example: iV29Aq+elo3c9qsMwq4BSLI1gX5FW5YROVMIjhV/
+  '400':
+    $ref: '../../../components/responses/400.yaml'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+  '404':
+    $ref: ../../../components/responses/404_user.yaml
+  '500':
+    $ref: '../../../components/responses/500.yaml'

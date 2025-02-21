@@ -1,4 +1,4 @@
-import { TEMP_UPLOAD_DIR, UPLOAD_DIR } from './constants/uploadDir.js';
+import { TEMP_UPLOAD_DIR, UPLOAD_DIR } from './constants/paths.js';
 import { initMongoConnection } from './db/initMongoConnection.js';
 import { setupServer } from './server.js';
 import { createDirIfNotExists } from './utils/createDirIfNotExists.js';
