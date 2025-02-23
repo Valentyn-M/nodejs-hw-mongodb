@@ -1,0 +1,81 @@
+tags:
+  - Auth
+summary: Register a new user
+operationId: registerUser
+description: Registers a new user and returns the user object without the password.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - name
+          - email
+          - password
+        properties:
+          name:
+            type: string
+            description: User name
+            example: 'John Doe'
+          email:
+            type: string
+            format: email
+            description: User email
+            example: 'johndoe@example.com'
+          password:
+            type: string
+            format: password
+            description: User password
+            example: 'securepassword123'
+responses:
+  '201':
+    description: User registered successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: 'User registered successfully!'
+            data:
+              type: object
+              required:
+                - name
+                - email
+                - _id
+                - createdAt
+                - updatedAt
+              properties:
+                name:
+                  type: string
+                  example: 'John Doe'
+                email:
+                  type: string
+                  format: email
+                  example: 'johndoe@example.com'
+                _id:
+                  type: string
+                  example: '67b7b84a134bdce531d9d671'
+                createdAt:
+                  type: string
+                  format: date-time
+                  example: '2025-02-20T23:18:34.837Z'
+                updatedAt:
+                  type: string
+                  format: date-time
+                  example: '2025-02-20T23:18:34.837Z'
+  '400':
+    $ref: '../../../components/responses/400.yaml'
+  '409':
+    $ref: '../../../components/responses/409.yaml'
+  '500':
+    $ref: '../../../components/responses/500.yaml'

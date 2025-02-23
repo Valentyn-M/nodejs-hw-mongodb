@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { TEMP_UPLOAD_DIR, UPLOAD_DIR } from '../constants/uploadDir.js';
+import { TEMP_UPLOAD_DIR, UPLOAD_DIR } from '../constants/paths.js';
 import { getEnvVar } from './getEnvVar.js';
 import { ENV_VARS } from '../constants/env.js';
 

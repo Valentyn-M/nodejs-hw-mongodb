@@ -11,7 +11,7 @@ import handlebars from 'handlebars';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { sendEmail } from '../utils/sendMail.js';
-import { TEMPLATES_DIR } from '../constants/templatesDir.js';
+import { TEMPLATES_DIR } from '../constants/paths.js';
 
 // ==========================================================================================================================
 
